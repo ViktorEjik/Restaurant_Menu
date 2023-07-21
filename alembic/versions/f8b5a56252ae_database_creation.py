@@ -1,13 +1,13 @@
 """Database creation
 
 Revision ID: f8b5a56252ae
-Revises: 
+Revises:
 Create Date: 2023-07-21 14:14:13.410686
 
 """
-from alembic import op
 import sqlalchemy as sa
 
+from alembic import op
 
 # revision identifiers, used by Alembic.
 revision = 'f8b5a56252ae'
@@ -45,7 +45,8 @@ def upgrade() -> None:
         sa.Column('description', sa.String(), nullable=False),
         sa.Column('price', sa.Float(), nullable=False),
         sa.Column('submenu_id', sa.Integer(), nullable=False),
-        sa.ForeignKeyConstraint(['submenu_id'], ['submenus.id'], ondelete='CASCADE'),
+        sa.ForeignKeyConstraint(
+            ['submenu_id'], ['submenus.id'], ondelete='CASCADE'),
         sa.PrimaryKeyConstraint('id'),
         sa.UniqueConstraint('id')
     )

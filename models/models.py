@@ -70,7 +70,7 @@ class Dishes(Base):
         nullable=False
     )
     submenu = relationship('Submenus', back_populates='dishes')
-    
+
     @validates('price')
     def validate_price(self, key, price):
         if price < 0:

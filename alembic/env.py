@@ -1,10 +1,8 @@
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
+from sqlalchemy import engine_from_config, pool
 
 from alembic import context
-
 from config import DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER
 from models.models import metadata
 
