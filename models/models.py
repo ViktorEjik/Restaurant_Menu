@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Float, ForeignKey, Integer, MetaData, String
-from sqlalchemy.orm import DeclarativeBase, relationship
+from sqlalchemy.orm import DeclarativeBase, relationship, validates
 
 metadata = MetaData()
 
@@ -70,3 +70,9 @@ class Dishes(Base):
         nullable=False
     )
     submenu = relationship('Submenus', back_populates='dishes')
+    
+    @validates('price')
+    def validate_price(self, key, price):
+        if price < 0:
+            raise ValueError('failed simple price validation')
+        return price
