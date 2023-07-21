@@ -13,5 +13,6 @@ pep8-naming==0.13.3
 psycopg2-binary==2.9.6
 pycodestyle==2.10.0
 pyflakes==3.0.1
+python-dotenv==1.0.0
 SQLAlchemy==2.0.19
 typing_extensions==4.7.1
